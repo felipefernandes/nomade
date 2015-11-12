@@ -1,0 +1,21 @@
+{
+  "name": "Nômade",
+  "version": "0.0.1",
+  "authors": [
+    "Felipe Fernandes <ripcorp@gmail.com>"
+  ],
+  "description": "O melhor cowork é a vida!",
+  "keywords": [
+    "wifi",
+    "cowork",
+    "tomada"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

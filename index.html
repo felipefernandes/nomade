@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nômade</title>
+
+</head>
+<body>
+<h1>Nômade</h1>
+<h3>O melhor cowork é a vida!</h3>
+<p>Consulte os locais onde tem as condições perfeitas para você trabalhar
+  fora de casa, ou fazer aquela reunião bacana.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Onde</td>
+      <td>Local</td>
+      <td>Bairro</td>
+      <td>Wifi</td>
+      <td>Tomada</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Teste</td>
+      <td>Barrashopping</td>
+      <td>Botafogo</td>
+      <td>sim</td>
+      <td>sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<form id="form_adicionar" enctype="application/json" action="https://sheetsu.com/apis/d12adf03" method="post">
+  <label for="input_onde">Onde?</label>
+  <input name="Onde" id="input_onde" type="text">
+
+  <label for="input_local">Local?</label>
+  <input name="Local" id="input_local" type="text">
+
+  <select name="Wifi" id="select_wifi">
+    <option></option>
+    <option>Sim</option>
+    <option>Não</option>
+  </select>
+
+
+
+  <button type="submit" id="enviar">Send</button>
+</form>
+
+<script src="assets/components/jquery/jquery.min.js"></script>
+<script language="Javascript">
+$.ajax({
+    type: "GET",
+    url: 'https://sheetsu.com/apis/9a70b9b9',
+    success: processarDadosPlanilha
+});
+// Função ajax que será chamada quando os dados forem recebidos do Sheetsu
+// Caso a requisição tenha ocorrido com sucesso, faça:
+function processarDadosPlanilha(data){
+    console.table(data.result);
+}
+
+
+$('#form_adicionar #enviar').click(function() {
+
+  var formDataOK = false;
+
+  // Verificar se todos os dados foram processados
+
+
+
+
+  // monta a variavel para ser postada para Sheetsu
+  var novaLinha = {
+      ideia: 'INSIRA AQUI SUA IDEIA',
+      categoria: 'exemplo'
+  };
+
+  if ( formDataOK ) {
+    $.ajax({
+        type: "POST",
+        url: 'https://sheetsu.com/apis/9a70b9b9',
+        data: novaLinha,
+        success: processarDadosPlanilha
+    });
+  }
+
+  // Função ajax que será chamada quando os dados forem recebidos do Sheetsu
+  // Caso a requisição tenha ocorrido com sucesso, faça:
+  function processarDadosPlanilha(data){
+      console.log('Dados inseridos com sucesso');
+  }
+
+});
+
+
+
+</script>
+</body>
+</html>
