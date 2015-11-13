@@ -6,8 +6,8 @@ Tarefas:
 V.0.0.1
 ---
   1. Criar um spredsheet __OK__
-  2. Criar um formulário de inserção
-  3. Criar uma listagem (tabela) com os dados formatados
+  2. Criar um formulário de inserção funcional 
+  3. Criar uma listagem (tabela) com os dados formatados __ok__
 
 V.0.0.2
 ---

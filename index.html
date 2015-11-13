@@ -3,101 +3,94 @@
 <head>
   <meta charset="utf-8">
   <title>Nômade</title>
-
+  <link href="assets/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>Nômade</h1>
-<h3>O melhor cowork é a vida!</h3>
-<p>Consulte os locais onde tem as condições perfeitas para você trabalhar
-  fora de casa, ou fazer aquela reunião bacana.</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="jumbotron">
+          <h1>Nômade</h1>
+          <h3>O melhor cowork é a vida!</h3>
+          <p>Consulte os locais bacanas para você trabalhar
+            fora de casa, ou fazer aquela reunião bacana.</p>
+        </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>Onde</td>
-      <td>Local</td>
-      <td>Bairro</td>
-      <td>Wifi</td>
-      <td>Tomada</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Teste</td>
-      <td>Barrashopping</td>
-      <td>Botafogo</td>
-      <td>sim</td>
-      <td>sim</td>
-    </tr>
-  </tbody>
-</table>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" id="dados_locais">
+            <thead>
+              <tr>
+                <th>Onde</th>
+                <th>Local</th>
+                <th>Bairro</th>
+                <th>Wifi</th>
+                <th>Tomada</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
 
-<form id="form_adicionar" enctype="application/json" action="https://sheetsu.com/apis/d12adf03" method="post">
-  <label for="input_onde">Onde?</label>
-  <input name="Onde" id="input_onde" type="text">
-
-  <label for="input_local">Local?</label>
-  <input name="Local" id="input_local" type="text">
-
-  <select name="Wifi" id="select_wifi">
-    <option></option>
-    <option>Sim</option>
-    <option>Não</option>
-  </select>
+        <div class="sugestao well">
+          <strong>Quer enviar um novo local?</strong> <a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#formularioModal">abrir formulário</a>
+        </div>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="formularioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Adicionar um novo local</h4>
+              </div>
+              <div class="modal-body">
+                <form id="form_adicionar" enctype="application/json" action="https://sheetsu.com/apis/d12adf03" method="post">
+                  <div class="form-group">
+                    <input name="Onde" id="input_onde" type="text" class="form-control" placeholder="Onde?">
+                  </div>
 
-  <button type="submit" id="enviar">Send</button>
-</form>
+                  <div class="form-group">
+                    <input name="Local" id="input_local" type="text" class="form-control" placeholder="Local?">
+                  </div>
 
-<script src="assets/components/jquery/jquery.min.js"></script>
-<script language="Javascript">
-$.ajax({
-    type: "GET",
-    url: 'https://sheetsu.com/apis/9a70b9b9',
-    success: processarDadosPlanilha
-});
-// Função ajax que será chamada quando os dados forem recebidos do Sheetsu
-// Caso a requisição tenha ocorrido com sucesso, faça:
-function processarDadosPlanilha(data){
-    console.table(data.result);
-}
+                  <div class="form-group">
+                    <select name="Wifi" id="select_wifi"  class="form-control">
+                      <option>Tem Wifi?</option>
+                      <option>Sim</option>
+                      <option>Não</option>
+                    </select>
+                  </div>
 
+                  <div class="form_group">
+                    <select name="Tomada" id="select_tomada"  class="form-control">
+                      <option>Tem Tomadas?</option>
+                      <option value="sim">Sim</option>
+                      <option value="sim">Não</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-$('#form_adicionar #enviar').click(function() {
+      </div>
+    </div>
+  </div>
 
-  var formDataOK = false;
-
-  // Verificar se todos os dados foram processados
-
-
-
-
-  // monta a variavel para ser postada para Sheetsu
-  var novaLinha = {
-      ideia: 'INSIRA AQUI SUA IDEIA',
-      categoria: 'exemplo'
-  };
-
-  if ( formDataOK ) {
-    $.ajax({
-        type: "POST",
-        url: 'https://sheetsu.com/apis/9a70b9b9',
-        data: novaLinha,
-        success: processarDadosPlanilha
-    });
-  }
-
-  // Função ajax que será chamada quando os dados forem recebidos do Sheetsu
-  // Caso a requisição tenha ocorrido com sucesso, faça:
-  function processarDadosPlanilha(data){
-      console.log('Dados inseridos com sucesso');
-  }
-
-});
-
-
-
-</script>
+<script lang="Javascript" src="assets/components/jquery/dist/jquery.min.js"></script>
+<script lang="javascript" src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script lang="Javascript" src="assets/scripts.js"></script>
 </body>
 </html>
