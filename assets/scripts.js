@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+  new dgCidadesEstados({
+    estado: $('#input_estado').get(0),
+    cidade: $('#input_cidade').get(0),
+    change: true
+  });
+
+
   // Função de inicio para carregar os dados vindo so Sheetsu
   function startUp() {
     $.ajax({
