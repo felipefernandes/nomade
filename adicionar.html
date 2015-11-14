@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nômade</title>
+  <link href="assets/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="jumbotron">
+          <h1>Nômade</h1>
+          <h3>O melhor cowork é a vida!</h3>
+          <p>Consulte os locais bacanas para você trabalhar
+            fora de casa, ou fazer aquela reunião bacana.</p>
+        </div>
+
+        <form enctype="application/json" action="https://sheetsu.com/apis/d12adf03" method="post">
+
+          <h3>Adicionar um novo local</h3>
+          <hr>
+
+          <div class="form-group">
+            <input name="Onde" id="input_onde" type="text" class="form-control" placeholder="Nome do estabelecimento">
+          </div>
+
+          <div class="form-group">
+            <input name="Local" id="input_local" type="text" class="form-control" placeholder="Onde fica? Ex. Shopping Palmeiras">
+          </div>
+
+          <div class="form-group">
+            <input name="Bairro" id="input_bairro" type="text" class="form-control" placeholder="Qual bairro?">
+          </div>
+
+          <fieldset disabled>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-10">
+                <input name="Cidade" id="input_cidade" type="text" class="form-control" placeholder="Cidade" value="Rio de Janeiro">
+              </div>
+              <div class="col-xs-2">
+                <input name="Estado" id="input_cidade" type="text" class="form-control" placeholder="UF" value="RJ">
+              </div>
+            </div>
+          </div>
+          </fieldset>
+
+          <div class="form-group">
+            <select name="Wifi" id="select_wifi"  class="form-control">
+              <option value="">Tem wifi livre?</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+
+          <div class="form_group">
+            <select name="Tomada" id="select_tomada"  class="form-control">
+              <option value="">Tem tomada disponível</option>
+              <option value="sim">Sim</option>
+              <option value="sim">Não</option>
+            </select>
+          </div>
+
+          <div class="form_group">
+            <br><button type="submit" class="btn btn-primary">Enviar</button>
+          <div>
+
+        </form>
+
+      </div><!-- col-xs-12 -->
+    </div><!-- row -->
+  </div><!-- container -->
+
+<script lang="Javascript" src="assets/components/jquery/dist/jquery.min.js"></script>
+<script lang="javascript" src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script lang="Javascript" src="assets/scripts.js"></script>
+</body>
+</html>
