@@ -5,3 +5,7 @@
 select[multiple], select[size] {
   height: 34px;
 }
+
+footer {
+  margin-top: 30px;
+}
