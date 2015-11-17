@@ -9,6 +9,7 @@ V.0.0.1
   2. Criar um formulário de inserção funcional  __ok__
   3. Criar uma listagem (tabela) com os dados formatados __ok__
   4. Carregamento automático de Cidades e Estados __ok__
+  5. Deployment automático
 
 V.0.0.2
 ---
