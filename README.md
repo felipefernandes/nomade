@@ -10,4 +10,4 @@ facilmente locais com wifi e tomada fora de casa, ajudando os freelancers e outr
 profissionais a utilizar espaços públicos como escritórios.
 
 __Dúvidas ou sugestões, me envie um
-e-mail (felipefernandesweb@gmail.com)[mailto:felipefernandesweb@gmail.com]__
+e-mail (felipefernandesweb@gmail.com)__
