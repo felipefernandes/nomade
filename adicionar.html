@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="nomade"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -31,57 +31,93 @@
             fora de casa, ou fazer aquela reunião bacana.</p>
         </div>
 
-        <form enctype="application/json" action="https://sheetsu.com/apis/d12adf03" method="post">
+        <div class="main-content" ng-controller="nomadeCtrl">
 
-          <h3>Adicionar um novo local</h3>
-          <hr>
+          <form ng-submit="onSubmit()"
+	              name="theForm"
+				        novalidate="novalidate">
 
-          <div class="form-group">
-            <input name="Onde" id="input_onde" type="text" class="form-control" placeholder="Nome do estabelecimento">
-          </div>
+            <h3>Adicionar um novo local</h3>
+            <hr>
 
-          <div class="form-group">
-            <input name="Local" id="input_local" type="text" class="form-control" placeholder="Onde fica? Ex. Shopping Palmeiras">
-          </div>
+            <div class="form-group">
+              <input name="Onde"
+                     id="input_onde"
+                     type="text"
+                     class="form-control"
+                     placeholder="Nome do estabelecimento"
+                     ng-model="formModel.onde"
+                     required="required">
+            </div>
 
-          <div class="form-group">
-            <input name="Bairro" id="input_bairro" type="text" class="form-control" placeholder="Qual bairro?">
-          </div>
+            <div class="form-group">
+              <input name="Local"
+                     id="input_local"
+                     type="text"
+                     class="form-control"
+                     placeholder="Onde fica? Ex. Shopping Palmeiras"
+                     ng-model="formModel.local">
+            </div>
 
-          <fieldset disabled>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-xs-10">
-                <input name="Cidade" id="input_cidade" type="text" class="form-control" placeholder="Cidade" value="Rio de Janeiro">
-              </div>
-              <div class="col-xs-2">
-                <input name="Estado" id="input_cidade" type="text" class="form-control" placeholder="UF" value="RJ">
+            <div class="form-group">
+              <input name="Bairro"
+                     id="input_bairro"
+                     type="text"
+                     class="form-control"
+                     placeholder="Qual bairro?"
+                     ng-model="formModel.bairro">
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-4">
+                  <select name="Estado"
+                          id="input_estado"
+                          class="form-control"
+                          ng-model="formModel.cidade">
+                  </select>
+                </div>
+                <div class="col-xs-8">
+                  <select name="Cidade"
+                          id="input_cidade"
+                          class="form-control"
+                          ng-model="formModel.estado">
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          </fieldset>
 
-          <div class="form-group">
-            <select name="Wifi" id="select_wifi"  class="form-control">
-              <option value="">Tem wifi livre?</option>
-              <option value="sim">Sim</option>
-              <option value="nao">Não</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <select name="Wifi"
+                      id="select_wifi"
+                      class="form-control"
+                      ng-model="formModel.wifi">
+                <option value="">Tem wifi livre?</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+            </div>
 
-          <div class="form_group">
-            <select name="Tomada" id="select_tomada"  class="form-control">
-              <option value="">Tem tomada disponível</option>
-              <option value="sim">Sim</option>
-              <option value="sim">Não</option>
-            </select>
-          </div>
+            <div class="form_group">
+              <select name="Tomada"
+                      id="select_tomada"
+                      class="form-control"
+                      ng-model="formModel.tomada">
+                <option value="">Tem tomada disponível</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Não</option>
+              </select>
+            </div>
 
-          <div class="form_group">
-            <br><button type="submit" class="btn btn-primary">Enviar</button>
-          <div>
+            <div class="form_group">
+              <br><button type="submit" class="btn btn-primary">Enviar</button>
+            <div>
 
-        </form>
+          </form>
+
+          <pre>{{ formModel | json }}</pre>
+
+        </div>
 
       </div><!-- col-xs-12 -->
     </div><!-- row -->
@@ -96,6 +132,19 @@
   <script lang="Javascript" src="assets/components/angular/angular.min.js"></script>
   <script lang="Javascript" src="assets/components/jquery/dist/jquery.min.js"></script>
   <script lang="javascript" src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script lang="Javascript" src="assets/scripts.js"></script>
+  <script lang="javascript" src="assets/cidades-estados-1.4-utf8.js"></script>
+  <script lang="Javascript" src="assets/main.js"></script>
+  <script lang="Javascript">
+  // Carregar os estados
+  <!--
+    $(document).ready(function() {
+      new dgCidadesEstados({
+        estado: $('#input_estado').get(0),
+        cidade: $('#input_cidade').get(0),
+        change: true
+      });
+    });
+  -->
+  </script>
 </body>
 </html>
