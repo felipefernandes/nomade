@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Nômade</title>
+    <title>Nômade | Adicionar novo local</title>
     <meta name="description" content="Consulte os locais bacanas para você trabalhar
       fora de casa, ou fazer aquela reunião bacana.">
     <meta name="viewport" content="width=device-width">
@@ -56,7 +56,8 @@
                      type="text"
                      class="form-control"
                      placeholder="Onde fica? Ex. Shopping Palmeiras"
-                     ng-model="formModel.local">
+                     ng-model="formModel.local"
+                     required="required">
             </div>
 
             <div class="form-group">
@@ -65,7 +66,8 @@
                      type="text"
                      class="form-control"
                      placeholder="Qual bairro?"
-                     ng-model="formModel.bairro">
+                     ng-model="formModel.bairro"
+                     required="required">
             </div>
 
             <div class="form-group">
@@ -74,14 +76,16 @@
                   <select name="Estado"
                           id="input_estado"
                           class="form-control"
-                          ng-model="formModel.cidade">
+                          ng-model="formModel.cidade"
+                          required="required">
                   </select>
                 </div>
                 <div class="col-xs-8">
                   <select name="Cidade"
                           id="input_cidade"
                           class="form-control"
-                          ng-model="formModel.estado">
+                          ng-model="formModel.estado"
+                          required="required">
                   </select>
                 </div>
               </div>
@@ -98,7 +102,7 @@
               </select>
             </div>
 
-            <div class="form_group">
+            <div class="form-group">
               <select name="Tomada"
                       id="select_tomada"
                       class="form-control"
@@ -110,8 +114,12 @@
             </div>
 
             <div class="form_group">
-              <br><button type="submit" class="btn btn-primary">Enviar</button>
-            <div>
+              <br>
+              <button type="submit" class="btn btn-primary">
+                <span ng-show="enviando">Enviando</span>
+                <span ng-show="!enviando">Enviar</span>
+              </button>
+            </div>
 
           </form>
 
@@ -130,6 +138,7 @@
   </footer><!-- rodape -->
 
   <script lang="Javascript" src="assets/components/angular/angular.min.js"></script>
+  <script lang="Javascript" src="assets/components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script>
   <script lang="Javascript" src="assets/components/jquery/dist/jquery.min.js"></script>
   <script lang="javascript" src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script lang="javascript" src="assets/cidades-estados-1.4-utf8.js"></script>
